@@ -1,0 +1,30 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "bookshelf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "node node_modules/eslint/bin/eslint.js ./src",
+    "dev": "node node_modules/nodemon/bin/nodemon.js ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonKristanto/bookshelf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonKristanto/bookshelf/issues"
+  },
+  "homepage": "https://github.com/jasonKristanto/bookshelf#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "nanoid": "^3.1.22"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.7"
+  }
+}
