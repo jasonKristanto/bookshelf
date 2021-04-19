@@ -20,7 +20,8 @@
   "homepage": "https://github.com/jasonKristanto/bookshelf#readme",
   "dependencies": {
     "@hapi/hapi": "^20.1.2",
-    "nanoid": "^3.1.22"
+    "nanoid": "^3.1.22",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "eslint": "^7.24.0",
