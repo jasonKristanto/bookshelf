@@ -21,7 +21,7 @@ module.exports = {
         reading,
       } = request.payload;
 
-      if (name.length <= 0 || typeof name !== 'string') {
+      if (name === undefined || name.length <= 0 || typeof name !== 'string') {
         return sendFailedResponse(h, 400,
             'Gagal menambahkan buku. Mohon isi nama buku',
         );
@@ -60,22 +60,22 @@ module.exports = {
             finished: pageCount === readPage,
           });
 
-          return sendSuccessResponse(h, 'Catatan berhasil ditambahkan', 201, {
+          return sendSuccessResponse(h, 'Buku berhasil ditambahkan', 201, {
             bookId: id,
           });
         }
 
         return sendFailedResponse(h, 400,
-            'Catatan gagal ditambahkan. Judul buku sudah terdaftar sebelumnya.',
+            'Buku gagal ditambahkan. Judul buku sudah terdaftar sebelumnya.',
         );
       }
 
       return sendFailedResponse(h, 500,
-          'Catatan gagal ditambahkan. Mohon kirimkan request yang sesuai.',
+          'Buku gagal ditambahkan. Mohon kirimkan request yang sesuai.',
       );
     } catch (err) {
       return sendFailedResponse(h, 500,
-          'Catatan gagal ditambahkan',
+          'Buku gagal ditambahkan',
       );
     }
   },

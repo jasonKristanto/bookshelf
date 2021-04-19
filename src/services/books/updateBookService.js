@@ -12,8 +12,8 @@ module.exports = {
       const index = books.findIndex((book) => book.id === bookId);
 
       if (index === -1) {
-        return sendFailedResponse(h, 400,
-            'Gagal memperbarui catatan. Id tidak ditemukan',
+        return sendFailedResponse(h, 404,
+            'Gagal memperbarui buku. Id tidak ditemukan',
         );
       }
 
@@ -28,15 +28,15 @@ module.exports = {
         reading,
       } = request.payload;
 
-      if (name.length <= 0 || typeof name !== 'string') {
+      if (name === undefined || name.length <= 0 || typeof name !== 'string') {
         return sendFailedResponse(h, 400,
-            'Gagal menambahkan buku. Mohon isi nama buku',
+            'Gagal memperbarui buku. Mohon isi nama buku',
         );
       }
 
       if (readPage > pageCount) {
         return sendFailedResponse(h, 400,
-            'Gagal menambahkan buku. ' +
+            'Gagal memperbarui buku. ' +
             'readPage tidak boleh lebih besar dari pageCount',
         );
       }
