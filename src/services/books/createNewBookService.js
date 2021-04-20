@@ -40,11 +40,8 @@ module.exports = {
         const updatedAt = insertedAt;
 
         const isIdUnique = books.filter((book) => book.id === id).length === 0;
-        const isBookNameUnique = books.filter(
-            (book) => book.name.toLowerCase() === name.toLowerCase(),
-        ).length === 0;
 
-        if (isIdUnique && isBookNameUnique) {
+        if (isIdUnique) {
           books.push({
             id,
             name,

@@ -42,31 +42,21 @@ module.exports = {
       }
 
       if (bookRequest.validate(request.payload)) {
-        const isBookNameUnique = books.filter(
-            (book) => book.name.toLowerCase() === name.toLowerCase(),
-        ).length === 0 || books[index].name === name;
+        books[index] = {
+          ...books[index],
+          name,
+          year,
+          author,
+          summary,
+          publisher,
+          pageCount,
+          readPage,
+          reading,
+          updatedAt: new Date().toISOString(),
+          finished: pageCount === readPage,
+        };
 
-        if (isBookNameUnique) {
-          books[index] = {
-            ...books[index],
-            name,
-            year,
-            author,
-            summary,
-            publisher,
-            pageCount,
-            readPage,
-            reading,
-            updatedAt: new Date().toISOString(),
-            finished: pageCount === readPage,
-          };
-
-          return sendSuccessResponse(h, 'Buku berhasil diperbarui');
-        }
-
-        return sendFailedResponse(h, 400,
-            'Gagal memperbarui buku. Judul buku sudah terdaftar sebelumnya.',
-        );
+        return sendSuccessResponse(h, 'Buku berhasil diperbarui');
       }
 
       return sendFailedResponse(h, 500,
